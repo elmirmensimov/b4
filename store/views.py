@@ -4,7 +4,7 @@ from .models import *
 import json
 import datetime
 
-def store(request):
+def index(request):
 
     if request.user.is_authenticated:
         customer = request.user.customer
@@ -18,7 +18,7 @@ def store(request):
 
     products = Product.objects.all()
     context = {'products': products, 'cartItems':cartItems}
-    return render(request, 'store/store.html', context)
+    return render(request, 'store/index.html', context)
 
 def cart(request):
     if request.user.is_authenticated:
